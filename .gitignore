@@ -1,3 +1,4 @@
-/javaxp/*.project
-/javaxp/*.classpath
-/javaxp/.settings
+/javaxp/javaxp/.classpath
+/javaxp/javaxp/.project
+/javaxp/javaxp/.settings
+/javaxp/javaxp/target
