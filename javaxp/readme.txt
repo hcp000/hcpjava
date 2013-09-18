@@ -1,2 +1,0 @@
-#创建一个BAE
-mvn archetype:generate -DarchetypeCatalog=http://maven.duapp.com/nexus/content/groups/public/archetype-catalog.xml -DarchetypeGroupId=com.baidu.bae.maven -DarchetypeArtifactId=bae-maven-demo -DarchetypeVersion=1.0.1 -Dbaeappid=appid34b6daqct1 -Dbaeversion=0
