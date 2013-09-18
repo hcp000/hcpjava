@@ -14,10 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 
 public class HelloServlet extends HttpServlet {
 
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		resp.getWriter().println("This is a bae maven demo app!");			
-	}
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.getWriter().println("This is a bae maven demo app!");
+    }
 
 }

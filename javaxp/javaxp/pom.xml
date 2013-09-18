@@ -1,13 +1,14 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.bae.hcpjava</groupId>
-	<artifactId>javaxp</artifactId>
-	<version>1.0.0</version>
-	<name>javaxp</name>
-	<packaging>war</packaging>
-	
-	<dependencies>
-		<dependency>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.bae.hcpjava</groupId>
+    <artifactId>javaxp</artifactId>
+    <version>1.0.0</version>
+    <name>javaxp</name>
+    <packaging>war</packaging>
+
+    <dependencies>
+        <dependency>
             <groupId>com.baidu.bce.javaruntime</groupId>
             <artifactId>bce-api-util-local</artifactId>
             <version>1.0.0</version>
@@ -29,7 +30,7 @@
             <artifactId>bae-sdk-local</artifactId>
             <version>1.0.0</version>
             <scope>provided</scope>
-        </dependency> 
+        </dependency>
         <dependency>
             <groupId>com.baidu.bce.javaruntime</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -48,73 +49,93 @@
             <artifactId>httpcore</artifactId>
             <version>4.1</version>
             <scope>provided</scope>
-        </dependency>		
-		<dependency>
+        </dependency>
+        <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
-	<repositories>
-		<repository>
-			<id>baemaven</id>
-			<name>BAE Maven</name>
-			<url>http://maven.duapp.com/nexus/content/groups/public/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>baemaven</id>
-			<name>BAE Maven</name>
-			<url>http://maven.duapp.com/nexus/content/groups/public/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-		</pluginRepository>
-	</pluginRepositories>
-	<build>
+    <repositories>
+        <repository>
+            <id>baemaven</id>
+            <name>BAE Maven</name>
+            <url>http://localhost:8081/nexus/content/groups/public/</url>
+
+            <!-- <url>http://maven.duapp.com/nexus/content/groups/public/</url> -->
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>baemaven</id>
+            <name>BAE Maven</name>
+            <url>http://localhost:8081/nexus/content/groups/public/</url>
+            <!-- <url>http://maven.duapp.com/nexus/content/groups/public/</url> -->
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
+    <build>
         <plugins>
-        	<plugin>
-            	<groupId>org.apache.maven.plugins</groupId>
-            	<artifactId>maven-compiler-plugin</artifactId>
-            	<configuration>
-            		<source>1.6</source>
-                	<target>1.6</target>
-            	</configuration>
-        	</plugin>
-        	<plugin>
-    			<groupId>org.apache.maven.plugins</groupId>
-    			<artifactId>maven-war-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>com.baidu.bae.maven.jetty</groupId>
-  				<artifactId>bae-maven-jetty-plugin</artifactId>
-  				<version>8.0.0.M3</version>
-  				<configuration>
-                	<jettyport>9001</jettyport>
-            	</configuration>
-			</plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.4</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <downloadSources>true</downloadSources>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.baidu.bae.maven.jetty</groupId>
+                <artifactId>bae-maven-jetty-plugin</artifactId>
+                <version>8.0.0.M3</version>
+                <configuration>
+                    <jettyport>9001</jettyport>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <downloadSources>true</downloadSources>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>com.baidu.bae.maven</groupId>
                 <artifactId>bae-maven-plugin</artifactId>
                 <version>1.0.0.0</version>
                 <executions>
-                	<execution>
-                		<id>baedeploy</id>
-                		<phase>install</phase>
-                		<goals>
-                			<goal>baedeploy</goal>
-                		</goals>
-                		<configuration>
-                			<changepass>true</changepass>
-                			<appid>appid34b6daqct1</appid>
-                			<version>0</version>     			
-                		</configuration>
-                	</execution>
+                    <execution>
+                        <id>baedeploy</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>baedeploy</goal>
+                        </goals>
+                        <configuration>
+                            <changepass>false</changepass>
+                            <appid>appid34b6daqct1</appid>
+                            <version>0</version>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
         </plugins>
